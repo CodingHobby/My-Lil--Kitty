@@ -70,7 +70,7 @@ module.exports = class Body {
 	 * @returns {Boolean} is the distance between the two objects less than 0?
 	 */
 	collides(obj) {
-		return this.dist(obj) <= 0
+		return this.dist(obj) == 0
 	}
 
 	/**
@@ -80,7 +80,7 @@ module.exports = class Body {
 	 * @returns {Number} the distance between the two objects
 	 */
 	dist(obj) {
-		return new Vector(this.x - obj.x, this.y - obj.y).mod
+		return new Vector(this.pos.x - obj.pos.x, this.pos.y - obj.pos.y).mod
 	}
 
 	/**
@@ -90,27 +90,35 @@ module.exports = class Body {
 	 * @param {Body} obj the object to check
 	 */
 
-	// TODOPhysics Make the decision for what happens based on an option (ie friction / weight of material)
-	bounce(obj) {
-		if (this.pos.x == obj.pos.x) {
-			this.pos.x = obj.pos.x - 1
-			this.vel.x *= -0.9
-		}
+	// TODO Make the decision about what happens based on an option (ie friction / weight of material)
+	// bounce(obj) {
+	// 	if (this.pos.x == obj.pos.x) {
+	// 		this.pos.x = obj.pos.x - 1
+	// 		this.vel.x *= -0.9
+	// 	}
 
-		if (this.pos.y == obj.pos.y) {
-			this.pos.y = obj.pos.y - 1
-			this.vel.y *= -0.9
-		}
-	}
+	// 	if (this.pos.y == obj.pos.y) {
+	// 		this.pos.y = obj.pos.y - 1
+	// 		this.vel.y *= -0.9
+	// 	}
+	// }
 
 	/**
 	 * Make an object bounce on the screen edges
 	 * 
 	 * @param {Vector} constraints
+	 * @return {Boolean} did the body hit the edges?
 	 */
 
 	// TODOPhysics make the drag force based on the options
 	edges(constraints) {
+		let out = false
+		
+		if (this.pos.x > constraints.x ||
+			this.pos.y > constraints.y ||
+			this.pos.x < 0 ||
+			this.pos.y < 0) out = true
+		
 		if (this.pos.x > constraints.x) {
 			this.pos.x = constraints.x
 			this.vel.x *= -1
@@ -126,5 +134,6 @@ module.exports = class Body {
 			this.pos.y = 0
 			this.vel.y *= -1
 		}
+		return out
 	}
 }

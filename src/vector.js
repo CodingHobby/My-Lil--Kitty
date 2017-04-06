@@ -9,7 +9,11 @@ module.exports = class Vector {
 	constructor(x, y) {
 		this.x = x || 0
 		this.y = y || 0
-		this.mod = Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2))
+		this.mod = this.modulus()
+	}
+
+	modulus() {
+		return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2))
 	}
 
 	/**
@@ -19,7 +23,10 @@ module.exports = class Vector {
 	 * @returns {Vector} the product of the operation
 	 */
 	add(v) {
-		return new Vector(this.x + v.x, this.y + v.y)
+		this.x = this.x + v.x
+		this.y = this.y + v.y
+		this.mod = this.modulus()
+		return this
 	}
 
 	/**
@@ -29,7 +36,10 @@ module.exports = class Vector {
 	 * @returns {Vector} the reult of the operation
 	 */
 	sub(v) {
-		return new Vector(this.x - v.x, this.y - v.y)
+		this.x = this.x - v.x
+		this.y = this.y - v.y
+		this.mod = this.modulus()
+		return this
 	}
 
 	/**
@@ -39,6 +49,9 @@ module.exports = class Vector {
 	 * @returns {Vector} the result of the operation
 	 */
 	mag(n) {
-		return new Vector(this.x * n, this.y * n)
+		this.x = this.x * n
+		this.y = this.y * n
+		this.mod = this.modulus()
+		return this
 	}
 }

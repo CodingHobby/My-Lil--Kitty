@@ -1,32 +1,33 @@
-☐ Basic Stuff
-	☐ Create Vector Class
-		☐ Implement multiplication by scalar
-		☐ Implement Cartesian product
-		☐ Implement Subtraction and Addition
-		☐ Implement module calculations
+✔ Basic Stuff @done (06/04/2017, 20:10:21)
+	✔ Create Vector Class @done (06/04/2017, 20:10:21)
+		✔ Implement multiplication by scalar @done (06/04/2017, 20:10:24)
+		✔ Implement Cartesian product @done (06/04/2017, 20:10:25)
+		✔ Implement Subtraction and Addition @done (06/04/2017, 20:10:25)
+		✔ Implement module calculations @done (06/04/2017, 20:10:26)
 
-	☐ Create Body Class
-		☐ Add position, Velocity and Acceleration Vectors
-		☐ Add gravity based on Parent World's
-		☐ Base friction constant on mass and world variables
-		☐ Add edge cases (World constraints)
-		☐ Add method to check for collision
-		☐ Check for distance from another object
-		☐ Update method, which updates all the properties of the body
+	✔ Create Body Class @done (06/04/2017, 20:10:27)
+		✔ Add position, Velocity and Acceleration Vectors @done (06/04/2017, 20:10:27)
+		✔ Add gravity based on Parent World's @done (06/04/2017, 20:10:28)
+		✔ Base friction constant on mass and world variables @done (06/04/2017, 20:10:29)
+		✔ Add edge cases (World constraints) @done (06/04/2017, 20:10:29)
+		✔ Add method to check for collision @done (06/04/2017, 20:10:30)
+		✔ Check for distance from another object @done (06/04/2017, 20:10:31)
+		✔ Update method, which updates all the properties of the body @done (06/04/2017, 20:10:31)
 
-	☐ Create World Class
-		☐ Add reference to children
-		☐ Method to add children
-		☐ Implement global Gravity force and pass it down to children
-		☐ Global update function, which checks collisions and updates state of all the children
+	✔ Create World Class @done (06/04/2017, 20:10:32)
+		✔ Add reference to children @done (06/04/2017, 20:10:34)
+		✔ Method to add children @done (06/04/2017, 20:10:34)
+		✔ Implement global Gravity force and pass it down to children @done (06/04/2017, 20:10:35)
+		✔ Global update function, which checks collisions and updates state of all the children @done (06/04/2017, 20:10:38)
 
-☐ Public Stuff
-	☐ Setup Git Repo
-	☐ Add Readme.md
-	☐ Add basic Docs
+✔ Public Stuff @done (06/04/2017, 20:10:39)
+	✔ Setup Git Repo @done (06/04/2017, 20:10:39)
+	✔ Add Readme.md @done (06/04/2017, 20:10:40)
+	✔ Add basic Docs @done (06/04/2017, 20:10:40)
 
 ☐ More stuff
 	☐ Transpile smart ES6 syntax to dumb ES5 syntax
 	☐ Add built in render, using HTML Canvas elements
 	☐ Add spring and Clot simulation stuff
 	☐ Add elastic bodies in general
+	☐ Add method to update a vector given 2 new x and ys
