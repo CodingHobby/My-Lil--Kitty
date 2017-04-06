@@ -6,7 +6,25 @@ const World = require('../src/world')
 describe('World', () => {
 	describe('Constructor', () => {
 		it('Creates a new World Object', () => {
-			expect(new World({})).toEqual({
+			expect(new World({
+				bodies: [new Body()],
+				gravity: 2,
+				constraints: {
+					x: 850,
+					y: 850
+				}
+			})).toEqual(new World({
+				bodies: [new Body()],
+				gravity: 2,
+				constraints: {
+					x: 850,
+					y: 850
+				}
+			}))
+		})
+
+		it('Has defaults', () => {
+			expect(new World()).toEqual({
 				bodies: [],
 				constraints: {
 					x: 600,
@@ -20,7 +38,7 @@ describe('World', () => {
 	describe('AddBody', () => {
 		it('Adds a body to the world', () => {
 			let b1 = new Body({})
-			var w = new World({})
+			var w = new World()
 			expect(w.addBody(b1)).toEqual([new Body({
 				pos: new Vector(0, 0),
 				vel: new Vector(0, 0),
@@ -30,7 +48,7 @@ describe('World', () => {
 		})
 
 		it('Defaults a body if none is given', () => {
-			let w = new World({})
+			let w = new World()
 			let b = new Body({})
 			expect(w.addBody()).toEqual(w.addBody(b))
 		})
@@ -38,7 +56,7 @@ describe('World', () => {
 
 	describe('Update', () => {
 		it('Updates the state of all the bodies', () => {
-			let w = new World({})
+			let w = new World()
 			let b1 = new Body({
 				acc: new Vector(1, 0)
 			})
@@ -55,7 +73,7 @@ describe('World', () => {
 
 	describe('SetG', () => {
 		it('Sets the world gravity', () => {
-			expect(new World({}).setG()).toEqual(1)			
+			expect(new World().setG()).toEqual(1)			
 		})
 	})
 })

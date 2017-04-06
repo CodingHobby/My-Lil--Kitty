@@ -8,7 +8,7 @@
 	✔ Create Body Class @done (06/04/2017, 20:10:27)
 		✔ Add position, Velocity and Acceleration Vectors @done (06/04/2017, 20:10:27)
 		✔ Add gravity based on Parent World's @done (06/04/2017, 20:10:28)
-		✔ Base friction constant on mass and world variables @done (06/04/2017, 20:10:29)
+		☐ Base friction constant on mass and world variables
 		✔ Add edge cases (World constraints) @done (06/04/2017, 20:10:29)
 		✔ Add method to check for collision @done (06/04/2017, 20:10:30)
 		✔ Check for distance from another object @done (06/04/2017, 20:10:31)
@@ -26,8 +26,8 @@
 	✔ Add basic Docs @done (06/04/2017, 20:10:40)
 
 ☐ More stuff
-	☐ Transpile smart ES6 syntax to dumb ES5 syntax
+	✔ Transpile smart ES6 syntax to dumb ES5 syntax @done (07/04/2017, 00:13:48)
 	☐ Add built in render, using HTML Canvas elements
-	☐ Add spring and Clot simulation stuff
+	☐ Add spring and Cloth simulation stuff
 	☐ Add elastic bodies in general
 	☐ Add method to update a vector given 2 new x and ys

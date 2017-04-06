@@ -7,16 +7,24 @@ module.exports = class Body {
 	 * @param {object} opts An object that contains diferent options for the body, such as the position, velocity and acceleration
 	 */
 	constructor(opts) {
-		if (opts.pos) this.pos = new Vector(opts.pos.x, opts.pos.y)
-		else this.pos = new Vector(0, 0)
+		if (opts) {
+			if (opts.pos) this.pos = new Vector(opts.pos.x, opts.pos.y)
+			else this.pos = new Vector(0, 0)
 
-		if (opts.vel) this.vel = new Vector(opts.vel.x, opts.vel.y)
-		else this.vel = new Vector(0, 0)
+			if (opts.vel) this.vel = new Vector(opts.vel.x, opts.vel.y)
+			else this.vel = new Vector(0, 0)
 
-		if (opts.acc) this.acc = new Vector(opts.acc.x, opts.acc.y)
-		else this.acc = new Vector(0, 0)
+			if (opts.acc) this.acc = new Vector(opts.acc.x, opts.acc.y)
+			else this.acc = new Vector(0, 0)
 
-		this.mass = opts.mass || 10
+			this.mass = opts.mass || 10
+		
+	} else {
+			this.pos = new Vector(0, 0)
+			this.vel = new Vector(0, 0)
+			this.acc = new Vector(0, 0)
+			this.mass = 10
+		}
 	}
 
 
@@ -57,10 +65,10 @@ module.exports = class Body {
 	 * Apply the gravity to the body, changing its acceleration
 	 * 
 	 * @param {Number} mag Physics the magnitude of the force
-	 * @returns {undefined}
+	 * @returns {Body}
 	 */
 	applyG(mag) {
-		this.applyForce(new Vector(0, this.gravity))
+		return this.applyForce(new Vector(0, this.gravity))
 	}
 
 	/**
@@ -84,26 +92,6 @@ module.exports = class Body {
 	}
 
 	/**
-	 * Change velocity based on the position of two objects
-	 * Also apply friction after the inpact
-	 * 
-	 * @param {Body} obj the object to check
-	 */
-
-	// TODO Make the decision about what happens based on an option (ie friction / weight of material)
-	// bounce(obj) {
-	// 	if (this.pos.x == obj.pos.x) {
-	// 		this.pos.x = obj.pos.x - 1
-	// 		this.vel.x *= -0.9
-	// 	}
-
-	// 	if (this.pos.y == obj.pos.y) {
-	// 		this.pos.y = obj.pos.y - 1
-	// 		this.vel.y *= -0.9
-	// 	}
-	// }
-
-	/**
 	 * Make an object bounce on the screen edges
 	 * 
 	 * @param {Vector} constraints
@@ -113,12 +101,12 @@ module.exports = class Body {
 	// TODOPhysics make the drag force based on the options
 	edges(constraints) {
 		let out = false
-		
+
 		if (this.pos.x > constraints.x ||
 			this.pos.y > constraints.y ||
 			this.pos.x < 0 ||
 			this.pos.y < 0) out = true
-		
+
 		if (this.pos.x > constraints.x) {
 			this.pos.x = constraints.x
 			this.vel.x *= -1

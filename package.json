@@ -6,10 +6,17 @@
   "license": "ISC",
   "scripts": {
     "start": "nodemon my-lil-kitty.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "build": "webpack"
   },
   "devDependencies": {
     "jest": "^19.0.2",
-    "nodemon": "*"
+    "nodemon": "*",
+    "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0"
   }
 }

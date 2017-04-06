@@ -4,7 +4,20 @@ var Body = require('../src/body')
 describe('Body', () => {
 	describe('Constructor', () => {
 		it('Creates a body based on a set of options', () => {
-			expect(new Body({})).toEqual({
+			expect(new Body({
+				pos: new Vector(10, 10),
+				vel: new Vector(2, 5),
+				acc: new Vector(0, 1),
+				mass: 20
+			})).toEqual({
+				pos: new Vector(10, 10),
+				vel: new Vector(2, 5),
+				acc: new Vector(0, 1),
+				mass: 20
+			})
+		})
+		it('Has defaults', () => {
+			expect(new Body()).toEqual({
 				pos: new Vector(0, 0),
 				vel: new Vector(0, 0),
 				acc: new Vector(0, 0),
@@ -29,15 +42,21 @@ describe('Body', () => {
 
 	describe('Set G', () => {
 		it('sets an object\'s gravity', () => {
-			let body = new Body({})
-			body.setG(1)
+			let body = new Body()
+			body.setG(2)
+			expect(body.gravity).toEqual(2)
+		})
+
+		it('Defaults to 1', () => {
+			let body = new Body()
+			body.setG()
 			expect(body.gravity).toEqual(1)
 		})
 	})
 
 	describe('Apply G', () => {
 		it('applies gravity to a body', () => {
-			let body = new Body({})
+			let body = new Body()
 			body.setG(1)
 			body.applyG()
 			expect(body.acc.y).toEqual(1)

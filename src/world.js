@@ -3,10 +3,20 @@ const Body = require('./body')
 
 module.exports = class World {
 	constructor(opts) {
-		this.bodies = opts.bodies || []
-		this.gravity = opts.gravity || 1
-		this.constraints = opts.constraints || {
-			x: 600, y: 600
+		if (opts) {
+			this.bodies = opts.bodies || []
+			this.gravity = opts.gravity || 1
+			this.constraints = opts.constraints || {
+				x: 600, 
+				y: 600
+			}
+		} else {
+			this.bodies = []
+			this.gravity = 1
+			this.constraints = {
+				x: 600,
+				y: 600
+			}
 		}
 
 		this.bodies.forEach(body => body.setG(this.gravity))
@@ -26,9 +36,6 @@ module.exports = class World {
 		this.bodies.forEach(body => {
 			body.update()
 			body.edges(this.constraints)
-			// for (var j = 0; j < bodies.length; i++) {
-			// 	if (this.bodies[j] !== body) body.bounce(this.bodies[j])
-			// }
 
 			return this.bodies
 		})

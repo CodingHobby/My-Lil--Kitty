@@ -1,8 +1,9 @@
 ### My LIL' CAT
 
-My LIL'CAT, which is short for **My Largly Intricated Library 'n' Cool Artificial Things**, is a JavaScript based Physics library, which is written using ES6 "class" Syntax - it is not yet webpack transpiled, although I'd love to do that in the future... If any of you could help me with that it would be great.
+My LIL'CAT, which is short for **My Largly Intricated Library 'n' Cool Artificial Things**, is a JavaScript based Physics library, which is written using ES6 "class" Syntax, and it is then transpiled using webpack.
 
 For now there are three main classes: 
+
 - `Vector` 
 - `Body` 
 - `World`
