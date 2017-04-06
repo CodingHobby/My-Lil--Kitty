@@ -4,7 +4,7 @@ module.exports = class Body {
 
 	/**
 	 * Creates an instance of Body
-	 * @param {object} opts : an object that contains diferent options for the body, such as the position, velocity and acceleration
+	 * @param {object} opts An object that contains diferent options for the body, such as the position, velocity and acceleration
 	 */
 	constructor(opts) {
 		if (opts.pos) this.pos = new Vector(opts.pos.x, opts.pos.y)
@@ -22,6 +22,7 @@ module.exports = class Body {
 
 	/**
 	 * Applies a force to a rigid body
+	 * 
 	 * @param {Vector} v the vector representing the force
 	 * @returns {Vector} the result of the addition between the acceleration of the body and the Vector v
 	 */
@@ -31,20 +32,22 @@ module.exports = class Body {
 
 	/**
 	 * Updates the state of the body, in particular its acceleration, velocity and position
-	 * @returns {undefined}
+	 * 
+	 * @returns {Body} returns the body itself
 	 */
 	update() {
-		this.applyG(this.gravity)
+		this.applyG(this.gravity || 0)
 		this.vel.add(this.acc)
 		this.pos.add(this.vel)
 		this.acc.mag(0)
+		return this
 	}
 
 	/**
 	 * Changes the body's gravity
 	 * 
-	 * @param {number} mag :the magnitude of the y component ofthe rgavity force
-	 * @returns {number} : the current gravity of the object
+	 * @param {number} mag the magnitude of the y component ofthe rgavity force
+	 * @returns {number} the current gravity of the object
 	 */
 	setG(mag) {
 		return this.gravity = mag || 1
@@ -53,7 +56,7 @@ module.exports = class Body {
 	/**
 	 * Apply the gravity to the body, changing its acceleration
 	 * 
-	 * @param {Number} mag : the magnitude of the force
+	 * @param {Number} mag Physics the magnitude of the force
 	 * @returns {undefined}
 	 */
 	applyG(mag) {
@@ -87,7 +90,7 @@ module.exports = class Body {
 	 * @param {Body} obj the object to check
 	 */
 
-	// TODO: Make the decision for what happens based on an option (ie friction / weight of material)
+	// TODOPhysics Make the decision for what happens based on an option (ie friction / weight of material)
 	bounce(obj) {
 		if (this.pos.x == obj.pos.x) {
 			this.pos.x = obj.pos.x - 1
@@ -103,21 +106,21 @@ module.exports = class Body {
 	/**
 	 * Make an object bounce on the screen edges
 	 * 
-	 * @param {Vector} constrains
+	 * @param {Vector} constraints
 	 */
 
-	// TODO: make the drag force based on the options
-	edges(constrains) {
-		if (this.pos.x > constrains.x) {
-			this.pos.x = constrains.x
+	// TODOPhysics make the drag force based on the options
+	edges(constraints) {
+		if (this.pos.x > constraints.x) {
+			this.pos.x = constraints.x
 			this.vel.x *= -1
 		} else if (this.pos.x < 0) {
 			this.pos.x = 0
 			this.vel.x *= -1
 		}
 
-		if (this.pos.y > constrains.y) {
-			this.pos.y = constrains.y
+		if (this.pos.y > constraints.y) {
+			this.pos.y = constraints.y
 			this.vel.y *= -1
 		} else if (this.pos.y < 0) {
 			this.pos.y = 0

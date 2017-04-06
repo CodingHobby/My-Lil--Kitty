@@ -1,0 +1,32 @@
+☐ Basic Stuff
+	☐ Create Vector Class
+		☐ Implement multiplication by scalar
+		☐ Implement Cartesian product
+		☐ Implement Subtraction and Addition
+		☐ Implement module calculations
+
+	☐ Create Body Class
+		☐ Add position, Velocity and Acceleration Vectors
+		☐ Add gravity based on Parent World's
+		☐ Base friction constant on mass and world variables
+		☐ Add edge cases (World constraints)
+		☐ Add method to check for collision
+		☐ Check for distance from another object
+		☐ Update method, which updates all the properties of the body
+
+	☐ Create World Class
+		☐ Add reference to children
+		☐ Method to add children
+		☐ Implement global Gravity force and pass it down to children
+		☐ Global update function, which checks collisions and updates state of all the children
+
+☐ Public Stuff
+	☐ Setup Git Repo
+	☐ Add Readme.md
+	☐ Add basic Docs
+
+☐ More stuff
+	☐ Transpile smart ES6 syntax to dumb ES5 syntax
+	☐ Add built in render, using HTML Canvas elements
+	☐ Add spring and Clot simulation stuff
+	☐ Add elastic bodies in general

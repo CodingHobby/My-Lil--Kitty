@@ -14,8 +14,8 @@ describe('Body', () => {
 	})
 
 	describe('Apply Force', () => {
-		it('Adds a force to the bodie\'s acc', () => {
+		it('Adds a force to the bodie\'s acceleration', () => {
 			expect(new Body({acc: new Vector(1, 0)}).applyForce(new Vector(1, 1))).toEqual(new Vector(2, 1))
-		}) 
+		})
 	})
 })

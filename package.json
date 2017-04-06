@@ -1,11 +1,11 @@
 {
-  "name": "phis-lib",
-  "author": "Corrado Canepari &lt;caneparicorrado@outlook.it&gt;",
+  "name": "my-lil-kitty",
+  "author": "Corrado Canepari <caneparicorrado@outlook.it>",
   "version": "1.0.0",
-  "main": "phis-lib.js",
+  "main": "my-lil-kitty.js",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon phis-lib.js",
+    "start": "nodemon my-lil-kitty.js",
     "test": "jest --watch"
   },
   "devDependencies": {
