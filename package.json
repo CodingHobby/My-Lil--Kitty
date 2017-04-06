@@ -1,0 +1,15 @@
+{
+  "name": "phis-lib",
+  "author": "Corrado Canepari &lt;caneparicorrado@outlook.it&gt;",
+  "version": "1.0.0",
+  "main": "phis-lib.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon phis-lib.js",
+    "test": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "nodemon": "*"
+  }
+}
