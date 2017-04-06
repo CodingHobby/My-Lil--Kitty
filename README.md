@@ -6,6 +6,7 @@ For now there are three main classes:
 - `Vector` 
 - `Body` 
 - `World`
+
 Here they are listed in an ascending order of complexity: a vector is the core unit, on top of which you can make Bodies, which are, for nows, just rigid bodies.
 
 The bodies have a lot of properties and methods which rely heavily on Vectors.
