@@ -4,7 +4,8 @@ module.exports = class Body {
 
 	/**
 	 * Creates an instance of Body
-	 * @param {object} opts An object that contains diferent options for the body, such as the position, velocity and acceleration
+	 * 
+	 * @param {object} [opts] An object that contains diferent options for the body, such as the position, velocity and acceleration
 	 */
 	constructor(opts) {
 		if (opts) {
@@ -52,19 +53,19 @@ module.exports = class Body {
 	}
 
 	/**
-	 * Changes the body's gravity
+	 * Changes the body's gravitational pull
 	 * 
-	 * @param {number} mag the magnitude of the y component ofthe rgavity force
-	 * @returns {number} the current gravity of the object
+	 * @param {number} [mag] the magnitude of the y component ofthe rgavity force
+	 * @returns {number} the current gravitational pull of the object
 	 */
 	setG(mag) {
 		return this.gravity = mag || 1
 	}
 
 	/**
-	 * Apply the gravity to the body, changing its acceleration
+	 * Apply the gravitational pull to the body, changing its acceleration
 	 * 
-	 * @param {Number} mag Physics the magnitude of the force
+	 * @param {Number} mag the magnitude of the force
 	 * @returns {Body}
 	 */
 	applyG(mag) {
@@ -98,7 +99,7 @@ module.exports = class Body {
 	 * @return {Boolean} did the body hit the edges?
 	 */
 
-	// TODOPhysics make the drag force based on the options
+	// TODO make the drag force based on the options
 	edges(constraints) {
 		let out = false
 
