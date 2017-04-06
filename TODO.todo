@@ -30,4 +30,4 @@
 	☐ Add built in render, using HTML Canvas elements
 	☐ Add spring and Cloth simulation stuff
 	☐ Add elastic bodies in general
-	☐ Add method to update a vector given 2 new x and ys
+	✔ Add method to update a vector given 2 new x and y @done (07/04/2017, 00:37:18)

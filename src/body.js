@@ -19,13 +19,16 @@ module.exports = class Body {
 			else this.acc = new Vector(0, 0)
 
 			this.mass = opts.mass || 10
-		
-	} else {
+
+		} else {
 			this.pos = new Vector(0, 0)
 			this.vel = new Vector(0, 0)
 			this.acc = new Vector(0, 0)
 			this.mass = 10
 		}
+
+		// cf = F / mg
+		this.cf = new Vector(this.vel.x / (this.mass * this.gravity), this.vel.y / (this.mass * this.gravity))
 	}
 
 
@@ -36,6 +39,7 @@ module.exports = class Body {
 	 * @returns {Vector} the result of the addition between the acceleration of the body and the Vector v
 	 */
 	applyForce(v) {
+		// using Vector.prototype.add()
 		return this.acc.add(v)
 	}
 
@@ -89,6 +93,7 @@ module.exports = class Body {
 	 * @returns {Number} the distance between the two objects
 	 */
 	dist(obj) {
+		// Only return the modulus of the vector representing the distance between the two objects
 		return new Vector(this.pos.x - obj.pos.x, this.pos.y - obj.pos.y).mod
 	}
 
@@ -103,25 +108,30 @@ module.exports = class Body {
 	edges(constraints) {
 		let out = false
 
+		// Determine whether we are actually out of the boundaries
+		// And setting the output accordingly
 		if (this.pos.x > constraints.x ||
 			this.pos.y > constraints.y ||
 			this.pos.x < 0 ||
 			this.pos.y < 0) out = true
 
+		// Changing the object's position and velocity based on whether we really are out of the boundaries
 		if (this.pos.x > constraints.x) {
+			// This avoids an infinte loop. Important
 			this.pos.x = constraints.x
-			this.vel.x *= -1
+			// Invert direction in which the body moves
+			this.vel.x *= -1 + (this.cf.x / 10)
 		} else if (this.pos.x < 0) {
 			this.pos.x = 0
-			this.vel.x *= -1
+			this.vel.x *= -1 + (this.cf.x / 10)
 		}
 
 		if (this.pos.y > constraints.y) {
 			this.pos.y = constraints.y
-			this.vel.y *= -1
+			this.vel.y *= -1 + (this.cf.y / 10)
 		} else if (this.pos.y < 0) {
 			this.pos.y = 0
-			this.vel.y *= -1
+			this.vel.y *= -1 + (this.cf.y / 10)
 		}
 		return out
 	}

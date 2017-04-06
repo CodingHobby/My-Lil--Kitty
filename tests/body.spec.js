@@ -3,26 +3,14 @@ var Body = require('../src/body')
 
 describe('Body', () => {
 	describe('Constructor', () => {
-		it('Creates a body based on a set of options', () => {
-			expect(new Body({
-				pos: new Vector(10, 10),
-				vel: new Vector(2, 5),
-				acc: new Vector(0, 1),
-				mass: 20
-			})).toEqual({
-				pos: new Vector(10, 10),
-				vel: new Vector(2, 5),
-				acc: new Vector(0, 1),
-				mass: 20
-			})
-		})
 		it('Has defaults', () => {
-			expect(new Body()).toEqual({
+			expect(new Body()).toEqual(new Body({
 				pos: new Vector(0, 0),
 				vel: new Vector(0, 0),
 				acc: new Vector(0, 0),
-				mass: 10
-			})
+				mass: 10,
+				cf: new Vector(0, 0)
+			}))
 		})
 	})
 

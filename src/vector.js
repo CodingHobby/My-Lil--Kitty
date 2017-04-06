@@ -3,8 +3,8 @@ module.exports = class Vector {
 	/**
 	 * Creates an instance of Vector and calculates its module
 	 * 
-	 * @param {Number} x x component of the vector
-	 * @param {Number} y y component of the vector
+	 * @param {Number} [x=0] x component of the vector
+	 * @param {Number} [y=0] y component of the vector
 	 */
 	constructor(x, y) {
 		this.x = x || 0
@@ -13,7 +13,23 @@ module.exports = class Vector {
 	}
 
 	modulus() {
+		// Using Pythagora to calculate the hypotenuse of the right-angled triangle formed by the two components of the vector
 		return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2))
+	}
+
+	/**
+	 * Resets its own x, y and modulus
+	 * 
+	 * @param {Number} [x = 0] 
+	 * @param {Number} [y = 0] 
+	 * 
+	 * @return {Vector} this
+	 */
+	reset(x, y) {
+		this.x = x || 0
+		this.y = y || 0
+		this.mod = this.modulus()
+		return this
 	}
 
 	/**
@@ -23,10 +39,7 @@ module.exports = class Vector {
 	 * @returns {Vector} the product of the operation
 	 */
 	add(v) {
-		this.x = this.x + v.x
-		this.y = this.y + v.y
-		this.mod = this.modulus()
-		return this
+		return this.reset(this.x + v.x, this.y + v.y)
 	}
 
 	/**
@@ -36,10 +49,7 @@ module.exports = class Vector {
 	 * @returns {Vector} the reult of the operation
 	 */
 	sub(v) {
-		this.x = this.x - v.x
-		this.y = this.y - v.y
-		this.mod = this.modulus()
-		return this
+		return this.reset(this.x - v.x, this.y - v.y)
 	}
 
 	/**
@@ -49,9 +59,6 @@ module.exports = class Vector {
 	 * @returns {Vector} the result of the operation
 	 */
 	mag(n) {
-		this.x = this.x * n
-		this.y = this.y * n
-		this.mod = this.modulus()
-		return this
+		return this.reset(this.x * n, this.y * n)
 	}
 }

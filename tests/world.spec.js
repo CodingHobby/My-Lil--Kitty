@@ -5,24 +5,6 @@ const World = require('../src/world')
 
 describe('World', () => {
 	describe('Constructor', () => {
-		it('Creates a new World Object', () => {
-			expect(new World({
-				bodies: [new Body()],
-				gravity: 2,
-				constraints: {
-					x: 850,
-					y: 850
-				}
-			})).toEqual(new World({
-				bodies: [new Body()],
-				gravity: 2,
-				constraints: {
-					x: 850,
-					y: 850
-				}
-			}))
-		})
-
 		it('Has defaults', () => {
 			expect(new World()).toEqual({
 				bodies: [],
@@ -62,12 +44,13 @@ describe('World', () => {
 			})
 			w.addBody(b1)
 			w.update()
-			expect(w.bodies[0]).toEqual({
+			expect(w.bodies[0]).toEqual(new Body({
 				pos: new Vector(1, 0),
 				vel: new Vector(1, 0),
 				acc: new Vector(0, 0),
-				mass: 10
-			})
+				mass: 10,
+				cf: new Vector(0, 0)
+			}))
 		})
 	})
 
