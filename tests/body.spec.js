@@ -9,7 +9,10 @@ describe('Body', () => {
 				vel: new Vector(0, 0),
 				acc: new Vector(0, 0),
 				mass: 10,
-				cf: new Vector(0, 0)
+				cf: new Vector(0, 0),
+				shape: 'RECT',
+				w: 200,
+				h: 200
 			}))
 		})
 	})

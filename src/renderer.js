@@ -17,12 +17,16 @@ module.exports = class Renderer {
 	}
 
 	createCanvas(w, h) {
-		return new Canvas(w, h)
+		this.canvas = new Canvas(w, h)
+		return this.canvas
 	}
 
 	render() {
-		setInterval(this.frameRate, () => {
-			world.update()
-		})
+		// setInterval(this.frameRate, () => {
+			this.world.update()
+			this.world.bodies.forEach(body => {
+				this.canvas.draw(body)
+			})
+		// })
 	}
 }

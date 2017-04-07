@@ -18,13 +18,21 @@ module.exports = class Body {
 			if (opts.acc) this.acc = new Vector(opts.acc.x, opts.acc.y)
 			else this.acc = new Vector(0, 0)
 
+			this.shape = opts.shape || 'RECT'
+
 			this.mass = opts.mass || 10
+
+			this.w = opts.w || 100
+			this.h = opts.h || 100
 
 		} else {
 			this.pos = new Vector(0, 0)
 			this.vel = new Vector(0, 0)
 			this.acc = new Vector(0, 0)
 			this.mass = 10
+			this.shape = 'RECT'
+			this.w = 100
+			this.h = 100
 		}
 
 		// cf = F / mg

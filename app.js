@@ -3,7 +3,10 @@ window.addEventListener('load', () => {
 
 	const world = new World()
 
+	world.addBody(new Body({shape: 'RECT'}))
+
 	const renderer = new Renderer({ world })
 	const c = renderer.createCanvas(600, 600)
+	renderer.render()
 	c.background(51)
 })
