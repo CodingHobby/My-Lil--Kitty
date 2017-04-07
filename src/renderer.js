@@ -1,4 +1,5 @@
 const World = require('./world')
+const Canvas = require('./canvas')
 
 module.exports = class Renderer {
 	constructor(opts) {
@@ -15,23 +16,8 @@ module.exports = class Renderer {
 		}
 	}
 
-	init() {
-		this.createCanvas(this.canvas)
-	}
-
-	createCanvas(canvas) {
-		if (!document) {
-			throw new Error('Cannot get the document')
-			return false
-		}
-
-		if (!document.querySelector('#canvas')) {
-			document.querySelector('#app').appendChild(document.createElement('canvas')).setAttribute('id', canvas)
-		}
-
-		let c = document.getElementById(canvas)
-		let context = c.getContext('2D')
-		return context
+	createCanvas(w, h) {
+		return new Canvas(w, h)
 	}
 
 	render() {

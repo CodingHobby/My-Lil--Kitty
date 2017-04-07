@@ -4,5 +4,6 @@ window.addEventListener('load', () => {
 	const world = new World()
 
 	const renderer = new Renderer({ world })
-	renderer.init()
+	const c = renderer.createCanvas(600, 600)
+	c.background(51)
 })

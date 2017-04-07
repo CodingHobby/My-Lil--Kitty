@@ -1,7 +1,7 @@
 ✔ Basic Stuff @done (06/04/2017, 20:10:21)
 	✔ Create Vector Class @done (06/04/2017, 20:10:21)
 		✔ Implement multiplication by scalar @done (06/04/2017, 20:10:24)
-		✔ Implement Cartesian product @done (06/04/2017, 20:10:25)
+		☐ Implement Cartesian product
 		✔ Implement Subtraction and Addition @done (06/04/2017, 20:10:25)
 		✔ Implement module calculations @done (06/04/2017, 20:10:26)
 
@@ -34,6 +34,8 @@
 	☐ Actual frame-rate calculation
 
 ☐ Bodies
+	☐ Add shape as option (default to rect)
+	☐ Render based on shape
 
 ☐ More stuff
 	✔ Transpile smart ES6 syntax to dumb ES5 syntax @done (07/04/2017, 00:13:48)
