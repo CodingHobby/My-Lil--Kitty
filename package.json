@@ -7,8 +7,8 @@
   "scripts": {
     "test": "jest",
     "dev": "jest --watch",
-    "build:app": "webpack --config app.webpack.js -w",
-    "build:lib": "webpack --config lib.webpack.js -w",
+    "build:app": "webpack --config app.webpack.js",
+    "build:lib": "webpack --config lib.webpack.js",
     "serve": "webpack-dev-server --config app.webpack.js"
   },
   "devDependencies": {
