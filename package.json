@@ -5,7 +5,8 @@
   "main": "my-lil-cat.js",
   "license": "ISC",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
+    "dev": "jest --watch",
     "build:app": "webpack --config app.webpack.js -w",
     "build:lib": "webpack --config lib.webpack.js -w",
     "serve": "webpack-dev-server --config app.webpack.js"
