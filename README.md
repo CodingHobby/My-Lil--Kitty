@@ -1,4 +1,4 @@
-### My LIL' CAT
+### My LIL' CAT [![Build Status](https://travis-ci.org/CodingHobby/My-Lil-Cat.svg?branch=master)](https://travis-ci.org/CodingHobby/My-Lil-Cat)
 
 My LIL'CAT, which is short for **My Largly Intricated Library 'n' Cool Artificial Things**, is a JavaScript based Physics library, which is written using ES6 "class" Syntax, and it is then transpiled using webpack.
 
