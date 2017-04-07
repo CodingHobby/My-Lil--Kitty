@@ -5,16 +5,17 @@
   "main": "my-lil-cat.js",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon my-lil-cat.js",
     "test": "jest --watch",
-    "build": "webpack"
+    "build:app": "webpack --config app.webpack.js -w",
+    "build:lib": "webpack --config lib.webpack.js -w",
+    "serve": "webpack-dev-server --config app.webpack.js"
   },
   "devDependencies": {
-    "jest": "^19.0.2",
-    "nodemon": "*",
-    "webpack": "^2.3.3",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0"
+    "babel-preset-es2015": "^6.24.0",
+    "jest": "^19.0.2",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   }
 }
