@@ -4,7 +4,7 @@ module.exports = class Canvas {
 		this.width = w
 		this.height = h
 		this.fillColor = 'rgb(0, 0, 0)'
-		this.strokeColor = 'rgb(0, 0, 0)'
+		this.strokeColor = null
 
 		if (!document) {
 			throw new Error('Cannot get the document')
@@ -29,6 +29,7 @@ module.exports = class Canvas {
 	draw(body) {
 		let shape = body.shape
 		this.context.fillStyle = this.fillColor
+		this.context.strokeStyle = this.strokeColor
 		if (typeof shape == 'string') {
 			switch (shape.toUpperCase()) {
 				case 'RECT':

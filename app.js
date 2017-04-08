@@ -9,11 +9,12 @@ window.addEventListener('load', () => {
 		pos: new Vector(c.width/2, c.height/2)
 	})
 
-	b1.setShape([[b1.pos.x, b1.pos.y], [b1.pos.x + 50, b1.pos.y], [b1.pos.x + 50, b1.pos.y + 50], [b1.pos.x, b1.pos.y + 50]])
+	b1.setShape('RECT')
 
 	world.addBody(b1)
 
-	renderer.render()
-	c.fill(255)
 	c.background(51)
+	// TODO replace w/ 3 arguments instead of an array
+	c.fill(255)
+	renderer.render()
 })
