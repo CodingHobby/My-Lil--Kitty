@@ -35,13 +35,20 @@ module.exports = class Canvas {
 					this.context.rect(body.pos.x, body.pos.y, body.w, body.h)
 					if (this.fillColor) this.context.fill()
 					if (this.strokeColor) this.context.stroke()
-					console.log('Yup')
 					break
 				default:
-					console.log('Nah')
+					throw new Error('String not valid')
 			}
+		} else if(shape instanceof Array) {
+			this.context.beginPath()
+			this.context.moveTo(body.pos.x, body.pos.y)
+			shape.forEach(coord => {
+				this.context.lineTo(coord[0], coord[1])
+			})
+			if(this.fillColor) this.context.fill()
+			if(this.strokeColor) this.context.stroke()
 		} else {
-			console.log('Nope')
+			throw new Error('Unsopported type')
 		}
 	}
 

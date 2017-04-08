@@ -74,6 +74,12 @@ module.exports = class Body {
 		return this.gravity = mag || 1
 	}
 
+	setShape(shape) {
+		if(typeof shape == 'string') this.shape = shape
+		else if(shape instanceof Array && shape.length >= 3) this.shape = shape
+		else throw new Error('Invalid shape format')
+	}
+
 	/**
 	 * Apply the gravitational pull to the body, changing its acceleration
 	 * 
