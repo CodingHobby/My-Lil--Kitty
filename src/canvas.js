@@ -53,17 +53,31 @@ module.exports = class Canvas {
 		}
 	}
 
-	fill(color) {
-		if (typeof color == 'number') this.fillColor = 'rgb(' + color + ',' + color + ',' + color + ')'
-		else if (color instanceof Array) this.fillColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')'
-		else if (color == null) this.strokeColor = null
-		else throw new Error('Unsopported color format')
+	fill(r, g, b) {
+		if(!g && !b) {
+			if(typeof r == 'number') {
+				this.fillColor = 'rgb(' + r + ', ' + r + ', ' + r + ')'
+			} else if(r instanceof Array) {
+				this.fillColor = 'rgb(' + r[0] + ', ' + r[1] + ', ' + r[2]
+			}
+		} else if(r && g && b) {
+			this.fillColor = 'rgb(' + r + ', ' + g + ', ' + b
+		} else {
+			throw new Error('Unsupported color format')
+		}
 	}
 
-	stroke(color) {
-		if (typeof color == 'number') this.strokeColor = 'rgb(' + color + ',' + color + ',' + color + ')'
-		else if (color instanceof Array) this.strokeColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')'
-		else if (color == null) this.strokeColor = null
-		else throw new Error('Unsopported color format')
+	stroke(r, g, b) {
+		if(!g && !b) {
+			if(typeof r == 'number') {
+				this.strokeColor = 'rgb(' + r + ', ' + r + ', ' + r + ')'
+			} else if(r instanceof Array) {
+				this.strokeColor = 'rgb(' + r[0] + ', ' + r[1] + ', ' + r[2]
+			}
+		} else if(r && g && b) {
+			this.strokeColor = 'rgb(' + r + ', ' + g + ', ' + b
+		} else {
+			throw new Error('Unsupported color format')
+		}
 	}
 }

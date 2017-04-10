@@ -14,7 +14,6 @@ window.addEventListener('load', () => {
 	world.addBody(b1)
 
 	c.background(51)
-	// TODO replace w/ 3 arguments instead of an array
-	c.fill(255)
+	c.fill(255, 0, 255)
 	renderer.render()
 })
