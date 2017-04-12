@@ -5,7 +5,9 @@ module.exports = class Body {
 	/**
 	 * Creates an instance of Body
 	 * 
-	 * @param {object} [opts] An object that contains diferent options for the body, such as the position, velocity and acceleration
+	 * @param {Object} [opts] - An object that contains diferent options for the body, such as the position, velocity and acceleration
+	 * 
+	 * @return {Void}
 	 */
 	constructor(opts) {
 		if (opts) {
@@ -43,9 +45,12 @@ module.exports = class Body {
 	/**
 	 * Applies a force to a rigid body
 	 * 
-	 * @param {Vector} v the vector representing the force
-	 * @returns {Vector} the result of the addition between the acceleration of the body and the Vector v
+	 * @param {Vector} v - the vector representing the force
+	 * 
+	 * @returns {Vector} - the result of the addition between the acceleration of the body and the Vector v
 	 */
+
+	// TODO: base force on inverse proportionality with mass
 	applyForce(v) {
 		// using Vector.prototype.add()
 		return this.acc.add(v)
@@ -54,7 +59,7 @@ module.exports = class Body {
 	/**
 	 * Updates the state of the body, in particular its acceleration, velocity and position
 	 * 
-	 * @returns {Body} returns the body itself
+	 * @returns {Body} - the body itself
 	 */
 	update() {
 		this.applyG(this.gravity || 0)
@@ -67,25 +72,42 @@ module.exports = class Body {
 	/**
 	 * Changes the body's gravitational pull
 	 * 
-	 * @param {number} [mag] the magnitude of the y component ofthe rgavity force
-	 * @returns {number} the current gravitational pull of the object
+	 * @param {number} [mag] - the magnitude of the y component ofthe rgavity force
+	 * 
+	 * @returns {number} - the current gravitational pull of the object
 	 */
 	setG(mag) {
 		return this.gravity = mag || 1
 	}
 
+	/**
+	 * Set a bodie's shape
+	 * 
+	 * @param {String|Array} shape - the shape the body should be changed to
+	 * 
+	 * @return {String|Array} - the new shape, which has been checked for format errors
+	 */
 	setShape(shape) {
-		if(typeof shape == 'string') this.shape = shape
-		else if(shape instanceof Array && shape.length >= 3) this.shape = shape
+		if (typeof shape == 'string') {
+			this.shape = shape
+			return this.shape
+		}
+		else if (shape instanceof Array && shape.length >= 3) {
+			this.shape = shape
+			return this.shape
+		}
 		else throw new Error('Invalid shape format')
 	}
 
 	/**
 	 * Apply the gravitational pull to the body, changing its acceleration
 	 * 
-	 * @param {Number} mag the magnitude of the force
-	 * @returns {Body}
+	 * @param {Number} mag - the magnitude of the force
+	 * 
+	 * @returns {Body} - the body itself
 	 */
+
+	// TODO Multiply by the mass * some constant, since the force will be changed to be based on the inverse of mass
 	applyG(mag) {
 		return this.applyForce(new Vector(0, this.gravity))
 	}
@@ -93,8 +115,9 @@ module.exports = class Body {
 	/**
 	 * Check if the object is colliding with another object
 	 * 
-	 * @param {Body} obj the object to check
-	 * @returns {Boolean} is the distance between the two objects less than 0?
+	 * @param {Body} obj - the object to check
+	 * 
+	 * @returns {Boolean} - is the distance between the two objects less than 0?
 	 */
 	collides(obj) {
 		return this.dist(obj) == 0
@@ -103,8 +126,8 @@ module.exports = class Body {
 	/**
 	 * Find out the distance between two bodies
 	 * 
-	 * @param {Body} obj the object to check
-	 * @returns {Number} the distance between the two objects
+	 * @param {Body} obj - the object to check
+	 * @returns {Number} - the distance between the two objects
 	 */
 	dist(obj) {
 		// Only return the modulus of the vector representing the distance between the two objects
@@ -114,11 +137,10 @@ module.exports = class Body {
 	/**
 	 * Make an object bounce on the screen edges
 	 * 
-	 * @param {Vector} constraints
-	 * @return {Boolean} did the body hit the edges?
+	 * @param {Vector} constraints - the edges of the world
+	 * 
+	 * @return {Boolean} - did the body hit the edges?
 	 */
-
-	// TODO make the drag force based on the options
 	edges(constraints) {
 		let out = false
 

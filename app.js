@@ -14,6 +14,6 @@ window.addEventListener('load', () => {
 	world.addBody(b1)
 
 	c.background(51)
-	c.fill(255, 0, 255)
+	c.fill(255)
 	renderer.render()
 })
