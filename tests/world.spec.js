@@ -47,7 +47,7 @@ describe('World', () => {
 			expect(w.bodies[0]).toEqual(new Body({
 				pos: new Vector(1, 0),
 				vel: new Vector(1, 0),
-				acc: new Vector(0, 0),
+				acc: new Vector(1, 0),
 				mass: 10,
 				cf: new Vector(0, 0)
 			}))

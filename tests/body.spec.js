@@ -11,8 +11,8 @@ describe('Body', () => {
 				mass: 10,
 				cf: new Vector(0, 0),
 				shape: 'RECT',
-				w: 200,
-				h: 200
+				w: 100,
+				h: 100
 			}))
 		})
 	})
@@ -27,7 +27,7 @@ describe('Body', () => {
 		it('updates a body\'s instance variables', () => {
 			let body = new Body({ acc: new Vector(0, 1) })
 			body.update()
-			expect(body).toEqual(new Body({ pos: new Vector(0, 1), vel: new Vector(0, 1), acc: new Vector(0, 0) }))
+			expect(body).toEqual(new Body({ pos: new Vector(0, 1), vel: new Vector(0, 1), acc: new Vector(0, 1) }))
 		})
 	})
 
