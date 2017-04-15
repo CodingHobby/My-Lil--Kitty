@@ -1,7 +1,7 @@
 {
   "name": "my-lil-cat",
   "author": "Corrado Canepari <caneparicorrado@outlook.it>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "my-lil-cat.js",
   "license": "ISC",
   "scripts": {
@@ -22,5 +22,10 @@
   },
   "dependencies": {
     "marejs": "^1.0.1"
-  }
+  },
+  "keywords": [
+    "physics",
+    "physics-engine",
+    "vectors"
+  ]
 }
