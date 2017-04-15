@@ -65,7 +65,6 @@ module.exports = class Body {
 		this.applyG(this.gravity || 0)
 		this.vel.add(this.acc)
 		this.pos.add(this.vel)
-		this.acc.mag(0)
 		return this
 	}
 
@@ -146,13 +145,13 @@ module.exports = class Body {
 
 		// Determine whether we are actually out of the boundaries
 		// And setting the output accordingly
-		if (this.pos.x > constraints.x ||
-			this.pos.y > constraints.y ||
+		if (this.pos.x + this.w > constraints.x ||
+			this.pos.y + this.h > constraints.y ||
 			this.pos.x < 0 ||
 			this.pos.y < 0) out = true
 
 		// Changing the object's position and velocity based on whether we really are out of the boundaries
-		if (this.pos.x > constraints.x) {
+		if (this.pos.x + this.w > constraints.x) {
 			// This avoids an infinte loop. Important
 			this.pos.x = constraints.x
 			// Invert direction in which the body moves

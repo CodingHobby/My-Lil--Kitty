@@ -1,43 +1,50 @@
-✔ Basic Stuff @done (06/04/2017, 20:10:21)
+Basic stuff:
 	✔ Create Vector Class @done (06/04/2017, 20:10:21)
 		✔ Implement multiplication by scalar @done (06/04/2017, 20:10:24)
 		✔ Implement Subtraction and Addition @done (06/04/2017, 20:10:25)
 		✔ Implement module calculations @done (06/04/2017, 20:10:26)
 
-	✔ Create Body Class @done (06/04/2017, 20:10:27)
-		✔ Add position, Velocity and Acceleration Vectors @done (06/04/2017, 20:10:27)
-		✔ Add gravity based on Parent World's @done (06/04/2017, 20:10:28)
-		✔ Base friction constant on mass and world variables @done (07/04/2017, 10:32:50)
-		✔ Add edge cases (World constraints) @done (06/04/2017, 20:10:29)
-		✔ Add method to check for collision @done (06/04/2017, 20:10:30)
-		✔ Check for distance from another object @done (06/04/2017, 20:10:31)
-		✔ Update method, which updates all the properties of the body @done (06/04/2017, 20:10:31)
+Body class:
+	✔ Add position, Velocity and Acceleration Vectors @done (06/04/2017, 20:10:27)
+	✔ Add gravity based on Parent World's @done (06/04/2017, 20:10:28)
+	✔ Base friction constant on mass and world variables @done (07/04/2017, 10:32:50)
+	✔ Add edge cases (World constraints) @done (06/04/2017, 20:10:29)
+	✔ Add method to check for collision @done (06/04/2017, 20:10:30)
+	✔ Check for distance from another object @done (06/04/2017, 20:10:31)
+	✔ Add shape as option (default to rect) @done (13/04/2017, 12:34:44)
+	✔ Render based on shape @done (13/04/2017, 12:34:45)
+	✔ Update method, which updates all the properties of the body @done (06/04/2017, 20:10:31)
+	☐ Find shaping bug
+	☐ Maybe translating 'rect' string to array of points will solve it
 
-	✔ Create World Class @done (06/04/2017, 20:10:32)
-		✔ Add reference to children @done (06/04/2017, 20:10:34)
-		✔ Method to add children @done (06/04/2017, 20:10:34)
-		✔ Implement global Gravity force and pass it down to children @done (06/04/2017, 20:10:35)
-		✔ Global update function, which checks collisions and updates state of all the children @done (06/04/2017, 20:10:38)
+World class:
+	✔ Add reference to children @done (06/04/2017, 20:10:34)
+	✔ Method to add children @done (06/04/2017, 20:10:34)
+	✔ Implement global Gravity force and pass it down to children @done (06/04/2017, 20:10:35)
+	✔ Global update function, which checks collisions and updates state of all the children @done (06/04/2017, 20:10:38)
 
-✔ Public Stuff @done (06/04/2017, 20:10:39)
+Publishing:
 	✔ Setup Git Repo @done (06/04/2017, 20:10:39)
 	✔ Add Readme.md @done (06/04/2017, 20:10:40)
 	✔ Add basic Docs @done (06/04/2017, 20:10:40)
+	☐ Add docs
+	☐ Github pages(?)
 
-☐ Renderer
+Renderer:
 	✔ Init function (creating canvas) @done (07/04/2017, 17:38:41)
 	✔ Work around DOM manipulation bugs @done (07/04/2017, 17:38:42)
+	✔ Ability to set frame rate from options @done (07/04/2017, 10:34:24)
 	☐ Write appropriate unit tests (shallow rendering(?))
 	☐ Function to render at a constant frame-rate
-	✔ Ability to set frame rate from options @done (07/04/2017, 10:34:24)
 	☐ Actual frame-rate calculation
+	☐ Stretching of objects, for some reason
+	☐ UNIT TESTING
 
-☐ Bodies
-	☐ Add shape as option (default to rect)
-	☐ Render based on shape
+Bodies:
 
-☐ More stuff
+Extra:
 	✔ Transpile smart ES6 syntax to dumb ES5 syntax @done (07/04/2017, 00:13:48)
+	✔ Add method to update a vector given 2 new x and y @done (07/04/2017, 00:37:18)
 	☐ Add spring and Cloth simulation stuff
 	☐ Add elastic bodies in general
-	✔ Add method to update a vector given 2 new x and y @done (07/04/2017, 00:37:18)
+	☐ Shallow rendering for testing
