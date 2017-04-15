@@ -20,8 +20,6 @@ module.exports = class Body {
 			if (opts.acc) this.acc = new Vector(opts.acc.x, opts.acc.y)
 			else this.acc = new Vector(0, 0)
 
-			this.shape = opts.shape || 'RECT'
-
 			this.mass = opts.mass || 10
 
 			this.w = opts.w || 100
@@ -32,7 +30,6 @@ module.exports = class Body {
 			this.vel = new Vector(0, 0)
 			this.acc = new Vector(0, 0)
 			this.mass = 10
-			this.shape = 'RECT'
 			this.w = 100
 			this.h = 100
 		}
@@ -79,35 +76,15 @@ module.exports = class Body {
 		return this.gravity = mag || 1
 	}
 
-	/**
-	 * Set a bodie's shape
-	 * 
-	 * @param {String|Array} shape - the shape the body should be changed to
-	 * 
-	 * @return {String|Array} - the new shape, which has been checked for format errors
-	 */
-	setShape(shape) {
-		if (typeof shape == 'string') {
-			this.shape = shape
-			return this.shape
-		}
-		else if (shape instanceof Array && shape.length >= 3) {
-			this.shape = shape
-			return this.shape
-		}
-		else throw new Error('Invalid shape format')
-	}
 
 	/**
 	 * Apply the gravitational pull to the body, changing its acceleration
-	 * 
-	 * @param {Number} mag - the magnitude of the force
 	 * 
 	 * @returns {Body} - the body itself
 	 */
 
 	// TODO Multiply by the mass * some constant, since the force will be changed to be based on the inverse of mass
-	applyG(mag) {
+	applyG() {
 		return this.applyForce(new Vector(0, this.gravity))
 	}
 

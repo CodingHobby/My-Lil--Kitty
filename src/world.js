@@ -65,6 +65,9 @@ module.exports = class World {
 	 */
 	setG(mag) {
 		this.gravity = mag || 1
+		this.bodies.forEach(body => {
+			vody.setG(mag)
+		})
 		return this.gravity
 	}
 }
