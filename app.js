@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-	const { Vector, Body, World } = require('./my-lil-cat')
+	const { Vector, Body, World } = require('my-lil-cat')
 	const { Canvas } = require('marejs')
 	const world = new World()
 	const canvas = new Canvas()
