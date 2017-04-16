@@ -29,3 +29,5 @@ After this you'll need to run the command `npm run build` and, at this point you
 If you want to run the unit tests you can either use `npm run test`, which will run all tests once, or use `npm run dev:test`, which will enter watch mode for testing.
 
 For now, if you want to use the library, you'll need to use something like Webpack (you can actually use this repo as an empty example), and write all your code in the `app.js` file. To build the app, run `npm run build:app`. The compiled, bundled file will be saved in the `/dist` folder, under the name of `bundle.js`. You can also use a live development server with hot module reloading by running `npm run serve`. Note that, if you use it, compiled files will be stored in memory, and won't actually be saved on your hard drive.
+
+As a conclusion I'd like to thank Elisa (Cat O' Mine) Quagliaroli for being a great friend and giving me an idea for the name of the two libraries. She really is an amazing person, and I am grateful to her.
